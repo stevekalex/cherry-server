@@ -1,4 +1,5 @@
 import OpenAI from "openai";
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 require('dotenv').config();
 
 const client = new OpenAI({

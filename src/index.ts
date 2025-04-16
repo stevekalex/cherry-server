@@ -2,6 +2,7 @@ import express from 'express';
 import { generateText, GPTModel } from './services/gpt';
 const app = express();
 const PORT = 3000;
+// eslint-disable-next-line @typescript-eslint/no-require-imports
 require('dotenv').config();
 
 console.log(process.env.OPEN_AI_KEY);
