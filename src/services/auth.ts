@@ -20,7 +20,8 @@ interface GoogleUser {
   picture?: string;
   given_name?: string;
   family_name?: string;
-  token?: string;
+  access_token?: string;
+  refresh_token?: string;
 }
 
 // Generate auth URL
@@ -31,7 +32,7 @@ const getAuthUrl = (state?: string) => {
     prompt: 'consent', // Required for refresh tokens
     state // Optional state parameter for security
   });
-  console.log('authUrl', authUrl);
+
   return authUrl
 };
 
@@ -64,10 +65,11 @@ const verifyCode = async (code: string): Promise<GoogleUser> => {
       picture: payload.picture,
       given_name: payload.given_name,
       family_name: payload.family_name,
-      token: tokens.access_token ?? undefined
+      access_token: tokens.access_token ?? undefined,
+      refresh_token: tokens.refresh_token ?? undefined
     };
     
-    return user;
+    return user
   } catch (error) {
     console.error('OAuth verification error:', error);
     throw new Error('Authentication failed');
