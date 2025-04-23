@@ -9,8 +9,6 @@ const client = new OAuth2Client(
   process.env.GOOGLE_CLIENT_SECRET,
   process.env.REDIRECT_URI || 'http://localhost:3000/auth/google/callback'
 );
-  console.log("🚀 ~ process.env.GOOGLE_CLIENT_SECRET:", process.env.GOOGLE_CLIENT_SECRET)
-  console.log("🚀 ~ process.env.GOOGLE_CLIENT_ID:", process.env.GOOGLE_CLIENT_ID)
 
 // Define user type based on Google profile
 interface GoogleUser {
